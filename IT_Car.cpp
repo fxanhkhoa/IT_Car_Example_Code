@@ -308,599 +308,67 @@ bool check_leftline()
 			
 void case_10()			// Run STRANGE
 {
-	switch(sensor_cmp(0b01111110))
-	{
-		case 0b00011000:
-		handle(0);
-		speed(100,100, 100);
-		break;
 		
-		/******************************/			//lech trai 1
-		case 0b00001000:
-		handle(3);
-		speed(100,100, 100);
-		break;
-				
-		case 0b00010000:							//lech phai 1
-		handle(-3);
-		speed(100,100, 100);
-		break;
-		
-		/******************************/			//lech trai 2
-		case 0b00001100:
-		handle(5);
-		speed(100,100, 100);
-		break;
-
-		case 0b00110000:							//lech phai 2
-		handle(-5);
-		speed(100,100, 100);
-		break;
-		
-		/******************************/			//lech trai 3
-		case 0b00000100:
-		handle(7);
-		speed(100,90, 95);
-		break;
-		
-		case 0b00100000:							//lech phai 3
-		handle(-7);
-		speed(90,100, 95);
-		break;
-		
-		/******************************/			//lech trai goc lon
-		case 0b00000110:
-		case 0b00000010:
-		handle(10);
-		speed(100,80, 90);
-		pattern = 11;
-		break;
-		
-		/******************************/			//lech phai goc lon
-		case 0b01100000:
-		case 0b01000000:
-		handle(-10);
-		speed(80,100, 90);
-		pattern = 12;
-		break;
-	}
 }
 
 void case_11()			// Turn RIGHT
 {
-	//switch (sensor_cmp(0b11111111))
-	//{
-		//case 0b11000000:
-		//case 0b10000000:
-		//handle(25);
-		//speed(100,0, 100);
-		//fast_brake_right();
-		//break;
-		//
-		//case 0b00000001:
-		//case 0b10000001:
-		//handle(23);
-		//speed(100,0, 100);
-		//fast_brake_right();
-		//break;
-		//
-		//case 0b00000011:
-		//handle(20);
-		//speed(100,0, 100);
-		//break;
-		//
-		//case 0b00000010:
-		//handle(17);
-		//speed(100,20, 100);
-		//break;
-		//
-		//case 0b00000110:
-		//handle(15);
-		//speed(100,50, 100);		
-		//break;
-		//
-		//case 0b00000100:
-		//handle(13);
-		//speed(100,70, 100);
-		//break;
-		//
-		//case 0b00001100:
-		//handle(10);
-		//speed(100,90, 100);
-		//break;
-		//
-		//case 0b00001000:		
-		//case 0b00011000:
-		//case 0b00010000:
-		//handle(7);
-		//speed(100,100, 100);
-		//pattern = 10;
-		//break;
-		//
-		//default:
-		//handle(30);
-		//speed(100,0, 100);
-		//break;
-	//}
-	//if (check_leftline())
-	//{
-		//pattern = 61;
-		//return;
-	//}
-	//if (check_rightline())
-	//{
-		//pattern = 51;
-		//return;
-	//}
-	if (check_line() == 0)
-	{
-		pattern = 20;
-		k = 0;
-		return;
-	}
-	switch(sensor_cmp(0b11001100))
-	{
-		case 0b11000000:
-		speed(90,-10,PERCENT_11);
-		handle(25);
-		break;
-		case 0b10000000:
-		speed(90,0,PERCENT_11);
-		handle(19);
-		break;
-		case 0b00000000:
-		speed(90,5,PERCENT_11);
-		handle(17);
-		break;
-		case 0b00000100:
-		speed(90,10,PERCENT_11);
-		handle(15);
-		break;
-		case 0b00001100:
-		speed(90,15,PERCENT_11);
-		handle(13);
-		pattern=10;
-		break;
-		default: pattern=11;
-		break;
-	}
+	
 }
 
 void case_12()			// Turn LEFT
 {
-	//switch(sensor_cmp(0b11111111))
-	//{
-		//case 0b00000011:
-		//case 0b00000001:
-		//handle(-45);
-		//speed(0,100, 100);
-		//fast_brake_left();
-		//break;
-		//
-		//case 0b10000000:
-		//case 0b10000001:
-		//handle(-23);
-		//speed(0,100, 100);
-		//fast_brake_left();
-		//break;
-		//
-		//case 0b11000000:
-		//handle(-20);
-		//speed(0,100, 100);
-		//break;
-		//
-		//case 0b01000000:
-		//handle(-17);
-		//speed(20,100, 100);
-		//break;
-		//
-		//case 0b01100000:
-		//handle(-15);
-		//speed(50,100, 100);
-		//break;
-		//
-		//case 0b00100000:
-		//handle(-13);
-		//speed(70,100, 100);
-		//break;
-		//
-		//case 0b00110000:
-		//handle(-10);
-		//speed(90,100, 100);
-		//break;
-		//
-		//case 0b00010000:
-		//case 0b00011000:
-		//case 0b00001000:
-		//handle(-7);
-		//speed(100,100, 100);
-		//pattern = 10;
-		//break;
-		//
-		//default:
-		//handle(-30);
-		//speed(0,100, 100);
-		//break;
-		//
-	//}
-	//if (check_leftline())
-	//{
-		//pattern = 61;
-		//return;
-	//}
-	//if (check_rightline())
-	//{
-		//pattern = 51;
-		//return;
-	//}
-	if (check_line() == 0)
-	{
-		pattern = 20;
-		k = 0;
-		return;
-	}
-	switch(sensor_cmp(0b00110011))
-	{
-		case 0b00000011:
-		speed(-10,90,PERCENT_12);
-		handle(-25);
-		break;
-		case 0b00000001:
-		speed(0,90,PERCENT_12);
-		handle(-19);
-		break;
-		case 0b00000000:
-		speed(5,90,PERCENT_12);
-		handle(-17);
-		break;
-		case 0b00100000:
-		speed(10,90,PERCENT_12);
-		handle(-15);
-		break;
-		case 0b00110000:
-		speed(15,90,PERCENT_12);
-		handle(-13);
-		pattern=10;
-		break;
-		
-		default: pattern=12;
-		break;
-	}
+	
 }
 
 void case_20()			// CROSS line waiting
 {	
-	led7(20);
-	if (k == 0)
-	{
-		speed(100,100,-70);
-		cnt = 0;
-		while (cnt < 100);
-		k = 1;
-	}
-	//if (cnt > 300) case_100();
-	switch(sensor_cmp(0b01111110))
-	{
-		case 0b00011000:
-		handle(-2);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		/******************************/			//lech trai 1
-		case 0b00001000:
-		handle(0);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		case 0b00010000:							//lech phai 1
-		handle(-4);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		/******************************/			//lech trai 2
-		case 0b00001100:
-		handle(1);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		case 0b00110000:							//lech phai 2
-		handle(-5);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		/******************************/			//lech trai 3
-		case 0b00000100:
-		handle(3);
-		speed(90,90, PERCENT_TURN_90);
-		break;
-		
-		case 0b00100000:							//lech phai 3
-		handle(-7);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		/******************************/
-		
-		case 0b00000110:
-		handle(4);
-		speed(90, 90, PERCENT_TURN_90);
-		break;
-		
-		case 0b01100000:
-		handle(-8);
-		speed(80,100, PERCENT_TURN_90);
-		break;
-		
-		
-	}
+	
 }
 
 void case_21()			// NO line
 {
-	switch (sensor_cmp(0b01111110))
-	{
-		case 0b00000000:
-			handle(0);
-			speed(100,100,100);
-		break;
-		case 0b01111110:
-		speed(100,100,100);
-		break;
-		case 0b00011000:
-		case 0b00110000:
-		case 0b00111000:
-		case 0b00001100:
-		case 0b00011100:
-		pattern=10;
-		break;
-		//case 0b01100000:
-		//case 0b01110000:
-			//handle(2);
-			//speed(100,80,100);
-			//pattern = 10;
-			//break;
-		default:
-		break;
-	}
-	switch (sensor_cmp(0b11100000))
-	{
-		case 0b10000000:
-		handle(18);
-		speed(100,100,100);
-		break;
-		case 0b11000000:
-		handle(25);
-		speed(100,100,100);
-		break;
-		case 0b11100000:
-		handle(27);
-		speed(100,100,100);
-		break;
-		default:
-		break;
-	}
 	
-	switch (sensor_cmp(0b00000111))
-	{
-		case 0b00000001:
-		handle(-18);
-		speed(100,100,100);
-		break;
-		case 0b00000011:
-		handle(-25);
-		speed(100,100,100);
-		break;
-		case 0b00000111:
-		handle(-27);
-		speed(100,100,100);
-		break;
-		default:
-		break;
-	}
 }
 
 void case_31()			// Turn 90 degree RIGHT
 {
-	led7(31);
-	/*while(cnt <= 40)
-	{
-		handle(35);
-		speed(-100,100, 100);
-	}*/
-	switch (sensor_cmp(0b11111111))
-	{
-		case 0x00:
-		//speed(100, 100, 50);
-		pattern = 32;
-		break;
-		
-		default:
-		//handle(30);
-		//speed(100, -10, 100);
-		break;
-	}
+	
 }
 
 void case_32()
 {
-	switch (sensor_cmp(0b11111000))
-	{
-		case 0b00110000:
-		case 0b01100000:
-		case 0b11100000:
-		case 0b01110000:
-		case 0b00011000:
-		//cnt_straight = 0;
-		handle(35);
-		speed(100,-10,100);
-		cnt = 0;
-		while (cnt < 5);
-		k = 0;
-		while ( k == 0)
-		{
-			switch (sensor_cmp(0b11111000))
-			{
-				case 0b00110000:
-				case 0b01100000:
-				case 0b11100000:
-				case 0b01110000:
-				case 0b00011000:
-				pattern = 10;
-				k = 1;
-				break;
-				default:
-				handle(35);
-				speed(100,-10,100);
-				break;
-			}
-		}
-		break;
-		default:
-		handle(35);
-		speed(100,-10,100);
-		cnt = 0;
-		while (cnt < TIME_DELAY_RIGHT);
-		break;
-	}
+	
 }
 
 void case_41()			// Turn 90 degree LEFT
 {
-	led7(41);
-	/*while(cnt <= 40)
-	{
-		handle(-35);
-		speed(100,-100, 100);
-	}*/
-	switch (sensor_cmp(0b11111111))
-	{
-		case 0x00:
-		pattern = 42;
-		break;
-		
-		default:
-		//handle(-30);
-		//speed(-20,100, 100);
-		//pattern = 42;
-		break;
-	}
+	
 }
 
 void case_42()
 {
-	switch (sensor_cmp(0b00011111))
-	{
-		case 0b00001100:
-		case 0b00011000:
-		case 0b00001110:
-		case 0b00000110:
-		case 0b00000111:
-		handle(-35);
-		speed(-10,100,100);
-		cnt = 0;
-		while (cnt < 5);
-		k = 0;
-		while (k == 0)
-		{
-			switch (sensor_cmp(0b00011111))
-			{
-				case 0b00001100:
-				case 0b00011000:
-				case 0b00001110:
-				case 0b00000110:
-				case 0b00000111:
-				pattern = 10;
-				k = 1;
-				break;
-				default:
-				handle(-35);
-				speed(-10,100,100);
-				break;
-			}
-		}
-		//cnt_straight = 0;
-		break;
-		default:
-		handle(-35);
-		speed(-10,100,100);
-		cnt = 0;
-		while (cnt < TIME_DELAY_LEFT);
-		//_delay_ms(100);
-		break;
-	}
+	
 }
 
 void case_51()			// RIGHT line waiting
 {
-	led7(51);
-	if (sensor_cmp(0b11111111) == 0x00)
-	{
-		cnt = 0;
-		pattern = 52;
-	}		
-	else
-	{
-		handle(10);
-		speed(100,100, PERCENT_CHANGE_LINE);
-	}		
+	
 }			
 
 void case_52()			// Change RIGHT line
 {
-	led7(52);
-	switch(sensor_cmp(0b11110000))
-	{
-		case 0b00110000:
-		case 0b01110000:
-		case 0b01100000:
-		case 0b00010000:
-		case 0b00100000:
-		//handle(-10);
-		cnt = 0;
-		pattern = 10;
-		break;
-		
-		default:
-		handle(10);
-		speed(100,100, PERCENT_CHANGE_LINE);
-		break;
-		
-	}
+	
 }
 
 void case_61()			// LEFT line waiting
 {
-	if (sensor_cmp(0b11111111) == 0x00)
-	{
-		cnt = 0;
-		pattern = 62;
-	}
-	else 
-	{
-		handle(-10);
-		speed(100,100, PERCENT_CHANGE_LINE);
-	}		
+	
 }
 
 void case_62()			// Change LEFT line
 {
-	switch(sensor_cmp(0b00001111))
-	{
-		case 0b00001100:
-		case 0b00001110:
-		case 0b00001000:
-		case 0b00000100:
-		//handle(10);
-		cnt = 0;
-		pattern = 10;
-		break;
-		
-		default:
-		handle(-10);
-		speed(100,100, PERCENT_CHANGE_LINE);
-		break;
-		
-	}
+	
 }
 
  void case_100()
